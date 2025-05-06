@@ -19,16 +19,6 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-## Usage
-- **Classical ML**: Train on tabular features
-  ```bash
-python run_classical_models.py --config configs/classical.yaml
-```
-- **3D CNN**: Train on MRI volumes using A100 GPUs
-  ```bash
-python run_cnn.py --config configs/cnn_full.yaml
-```
-
 ## Citation
 > Dufumier, B., Grigis, A., Victor, J., Ambroise, C., Frouin, V., & Duchesnay, E. (2022).  
 > *OpenBHB: a Large-Scale Multi-Site Brain MRI Data-set for Age Prediction and Debiasing*. **NeuroImage**.
