@@ -1,34 +1,37 @@
-# 🧠 Brain Age Prediction using the OpenBHB MRI Dataset
+# Brain Age Prediction with OpenBHB MRI Dataset
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](#license)  
-[![Python Version](https://img.shields.io/badge/python-3.8%2B-brightgreen)](#requirements)
-
-## Table of Contents
-- [Overview](#overview)
-- [Dataset](#dataset)
-- [Models](#models)
-- [Getting Started](#getting-started)
-- [Citation](#citation)
-- [License](#license)
+This repository contains the code and experiments for predicting **brain age** using the **OpenBHB** dataset—a large-scale, multi-site collection of structural brain MRI scans and associated biological measurements.
 
 ## Overview
-Descrizione del progetto...
+- **Goal**: Estimate a person’s brain age (appearance-based) from MRI data.
+- **Applications**: Early detection of neurodegenerative diseases (e.g., Alzheimer’s).
 
 ## Dataset
-Tutti i dati per il dataset **OpenBHB** sono stati scaricati da [IEEE DataPort](https://ieee-dataport.org/open-access/openbhb-multi-site-brain-mri-dataset-age-prediction-and-debiasing).
+All data were downloaded from [IEEE DataPort](https://ieee-dataport.org/open-access/openbhb-multi-site-brain-mri-dataset-age-prediction-and-debiasing). The dataset includes scans from ~4,000 subjects across 10 sites (60–70 GB total).
 
-## Models
-- **Classical ML**: Linear Regression, Random Forest, XGBoost (MAE ~4–4.5 anni)  
-- **3D CNN** su volumi sMRI (in corso su A100 GPUs)
+## Installation
+```bash
+git clone https://github.com/g1armando/OpenBHB-Brain-NeuroImaging-Dataset.git
+cd OpenBHB-Brain-NeuroImaging-Dataset
+# to activate your environment:
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+```
 
-## Getting Started
-1. `git clone ...`
-2. `pip install -r requirements.txt`
-3. `python train.py --config configs/full_dataset.yaml`
+## Usage
+- **Classical ML**: Train on tabular features
+  ```bash
+python run_classical_models.py --config configs/classical.yaml
+```
+- **3D CNN**: Train on MRI volumes using A100 GPUs
+  ```bash
+python run_cnn.py --config configs/cnn_full.yaml
+```
 
 ## Citation
 > Dufumier, B., Grigis, A., Victor, J., Ambroise, C., Frouin, V., & Duchesnay, E. (2022).  
 > *OpenBHB: a Large-Scale Multi-Site Brain MRI Data-set for Age Prediction and Debiasing*. **NeuroImage**.
 
 ## License
-MIT © [Tuo Nome](https://github.com/tuo-username)
+This project is licensed under MIT. See [LICENSE](LICENSE) for details.
